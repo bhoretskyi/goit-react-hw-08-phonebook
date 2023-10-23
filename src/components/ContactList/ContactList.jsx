@@ -2,6 +2,10 @@ import { StyledButton } from './ContactList.styled';
 import { fetchContacts, deleteContact } from 'redux/Contacts/contactOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { UserForm } from '../Form/Form';
+import { ContactFilter } from '../ContactFilter/ContactFilter';
+
+
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -24,6 +28,16 @@ export const ContactList = () => {
   };
 
   return (
+    <div>
+    <UserForm/>
+    <h1>Phonebook</h1>
+       <UserForm />
+
+       <div>
+         <h2>Contacts</h2>
+         <ContactFilter />
+
+      </div>
     <ul>
       {selectFilteredContacts().map(contact => (
         <li key={contact.id}>
@@ -36,5 +50,6 @@ export const ContactList = () => {
         </li>
       ))}
     </ul>
+    </div>
   );
 };

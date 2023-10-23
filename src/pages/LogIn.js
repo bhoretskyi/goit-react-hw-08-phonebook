@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/Auth/authOperations';
 
 
-const Login = () => {
+export default function Login  () {
     const dispatch = useDispatch()
     return (
         <div>
@@ -45,4 +45,3 @@ const Login = () => {
     </div>
     )
 }
-export default Login

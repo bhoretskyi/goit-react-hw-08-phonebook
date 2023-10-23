@@ -2,7 +2,7 @@ import { register } from 'redux/Auth/authOperations';
 import { useDispatch } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-const Register = () => {
+export default function Register  () {
   const dispatch = useDispatch();
   return (
     <div>
@@ -52,4 +52,4 @@ const Register = () => {
     </div>
   );
 };
-export default Register;
+
