@@ -1,5 +1,5 @@
 import { StyledButton } from './ContactList.styled';
-import { fetchContacts, deleteContact } from 'redux/contactOperations';
+import { fetchContacts, deleteContact } from 'redux/Contacts/contactOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 

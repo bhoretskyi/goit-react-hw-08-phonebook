@@ -3,7 +3,7 @@ import { StyledButton, StyledField, StyledForm } from './Form.styled';
 import * as Yap from 'yup';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactOperations';
+import { addContact } from 'redux/Contacts/contactOperations';
 
 const FindSchema = Yap.object().shape({
   name: Yap.string()
