@@ -1,4 +1,3 @@
-
 // import { Header } from './Header/Header';
 import { lazy } from 'react';
 import { Layout } from './Layout/Layout';
@@ -8,14 +7,10 @@ import { Layout } from './Layout/Layout';
 // import { refreshUser } from 'redux/Auth/authOperations';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
-
-
-
 const Register = lazy(() => import('../pages/Register'));
 const Home = lazy(() => import('../pages/Home'));
-const Login = lazy(() => import('../pages/LogIn')); 
+const Login = lazy(() => import('../pages/LogIn'));
 const Contactlist = lazy(() => import('components/ContactList/ContactList'));
-
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -25,8 +20,7 @@ export const App = () => {
   //   dispatch(refreshUser());
   // }, [dispatch]);
 
-
-  return  (
+  return (
     // <section>
     // <Header/>
     // <Register/>
@@ -41,31 +35,30 @@ export const App = () => {
     //   </div>
     // </section>
     <section>
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/register">Register</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contacts">Contacts</NavLink>
-        </li>
-      </ul>
-    </nav>
-    <Routes>
-    <Route path="/" element={<Layout />}>
-
-      <Route index element={<Home />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/contacts" element={<Contactlist />} />
-      </Route>
-    </Routes>
-  </section>
-  )
-}
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contacts">Contacts</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contacts" element={<Contactlist />} />
+        </Route>
+      </Routes>
+    </section>
+  );
+};
