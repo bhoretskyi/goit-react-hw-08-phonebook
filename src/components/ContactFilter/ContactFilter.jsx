@@ -14,6 +14,7 @@ export const ContactFilter = () => {
         <label>
           Filter by name:
           <StyledFilter
+          name="contactfilter"
             type="text"
             value={filter}
             onChange={e => dispatch(setFilter(e.target.value.trim()))}

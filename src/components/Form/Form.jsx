@@ -46,7 +46,7 @@ export const UserForm = () => {
         <StyledForm>
           <label>
             Name
-            <StyledField name="name" type="text"></StyledField>
+            <StyledField name="name" autoComplete="name" type="text"></StyledField>
             <ErrorMessage name="name" />
           </label>
           <label>
