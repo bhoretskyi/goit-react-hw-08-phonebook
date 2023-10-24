@@ -1,18 +1,35 @@
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { UserMenu } from 'components/UserMenu/UserMenu';
 
  export const  Header = ()=> {
+  const { isLoggedin, isLoading } = useSelector(state => state.auth);
   return (
     <div>
     <header>
+      {isLoading && (<p>Loading</p>)}
 
-      <nav>
-        {/* <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/'}>Register</NavLink>
-        <NavLink to={'/'}>Login</NavLink> */}
-<a href='/'>Home</a>
-<a href='/'>Register</a>
-<a href='/'>Login</a>
-
+    <nav>
+        <ul>
+          
+          {isLoggedin ? <UserMenu/> :(
+              <>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+              </>
+            ) }
+            <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+              <li>
+                <NavLink to="/contacts">Contacts</NavLink>
+              </li>
+            
+        </ul>
       </nav>
 
     </header>

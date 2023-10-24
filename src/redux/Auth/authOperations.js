@@ -6,9 +6,9 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = ``;
-// };
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = ``;
+};
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -37,31 +37,32 @@ export const logIn = createAsyncThunk(
   }
 );
 
-// export const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
-//   try {
-//     const res = await axios.post('users/logout');
-//     clearAuthHeader();
-//   } catch (error) {
-//     return thunkApi.rejectWithValue(error.message);
-//   }
-// });
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
+  try {
+    await axios.post('users/logout');
+    clearAuthHeader();
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message);
+  }
+});
 
 
-// export const refreshUser = createAsyncThunk(
-//     'auth/refresh',
-//     async(_, thunkApi) => {
-//         const state = thunkApi.getState()
-//         const persistedToken = state.auth.token
-//         if(persistedToken === null) {
-//             return thunkApi.rejectWithValue('unable to catch user')
-//         }
-//         try{
-//             setAuthHeader(persistedToken)
-//             const res = await axios.get('users/current')
-//             return res.data
-//         }
-//         catch (error) {
-//             return thunkApi.rejectWithValue(error.message);
-//           }
-//     }
-// )
+export const refreshUser = createAsyncThunk(
+    'auth/refresh',
+    async(_, thunkApi) => {
+        const state = thunkApi.getState()
+        console.log(state)
+        const persistedToken = state.auth.token
+        if(persistedToken === null) {
+            return thunkApi.rejectWithValue('unable to catch user')
+        }
+        try{
+            setAuthHeader(persistedToken)
+            const res = await axios.get('users/current')
+            return res.data
+        }
+        catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+          }
+    }
+)
