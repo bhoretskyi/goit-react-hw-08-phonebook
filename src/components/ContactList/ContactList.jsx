@@ -29,7 +29,7 @@ export default function ContactList () {
 
   return (
     <div>
-    <UserForm/>
+    
     <h1>Phonebook</h1>
        <UserForm />
 
